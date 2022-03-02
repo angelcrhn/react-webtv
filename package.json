@@ -9,13 +9,20 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xml2js": "^0.4.23"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tizen:transfer": "cp build/* tizen -r",
+    "tizen:optimize": "node configs/optimize.js",
+    "tizen:build": "npm run build && npm run tizen:transfer && npm run tizen:optimize && tizen build-web -- tizen",
+    "tizen:package": "node configs/tizen.package.js",
+    "tizen:install": "node configs/tizen.install.js",
+    "tizen:emulator": "node configs/tizen.emulator.js"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "."
 }
